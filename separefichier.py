@@ -18,16 +18,8 @@ with open ('GRCh38.p13.genome.fa', 'r')  as genome:
    
    
    
-'''   
-   uvrir le fichier en lecture
-   utiliser boucle
-   a chaque qu'une ligne commence par > ca declence 'ouverture en ecriture en fichier en append
-   ca ecrit le ligne en cours dans ce fichier qui vient d'etre ouvert
-   initialiser une variable compteur =0
-   des que le cdition de tomber sur le signe sera rencontrer 
-   chromosome+compteur+'fasta'
-         
-'''         
+    
+        
          
          
          
