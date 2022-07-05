@@ -31,3 +31,6 @@ with open ('human_g1k_v37.fasta', 'r')  as genome:
 
 Cela va donc créer un nombre n de fichiers qui correspond au nombre n de chromosomes.
 
+## L'analyse de la séquence d'ADN
+
+Tout d'abord pour pouvoir utiliser ce code, nous utilisons un des fichiers créer ultérieurement grâce au code separefichier.py 
