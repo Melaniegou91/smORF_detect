@@ -27,11 +27,11 @@ Ensuite pour faire les 3 autres cadres de lecture, il fallait que nous prenions 
 
 C'est pour cela que nous avons créer la fonction complementaire. Nous avons fait en sorte de d'abord trouver les nucléotides complémentaire et ensuite d'inverser le sens de lecture.
 
-Par la suite il a fallu éditer le dictionnaire du Code génétique afin que lorsque que l'on rencontre un codon nous sachions à quels acides aminés il corespondait.
+Par la suite il a fallu éditer le dictionnaire du Code génétique afin que lorsque l'on rencontre un codon nous sachions à quels acides aminés il correspondait.
 
 ![code génétique](https://github.com/Melaniegou91/smORF_detect/blob/main/Code%20g%C3%A9n%C3%A9tique.jpg)
 
-Une fois cela fait, et apres avoir pris en compte les
+Une fois cela fait, et après avoir pris en compte les problèmes de mémoire, nous sommes parvenus au code transcriptome.py
 
 
 
