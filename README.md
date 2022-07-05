@@ -4,7 +4,7 @@ Le but de ce projet est d'analyser une séquence d'ADN afin de détecter des pep
 
 Pour cela nous avons déja du mettre en place la séparation de fichier afin de pouvoir ouvrir un fichier et l'analyser.
 
-## _La séparation en plusieurs fichiers_
+## =La séparation en plusieurs fichiers=
 
 Dans ce code, nous cherchons à diviser un fichier en plusieurs fichiers car le transcriptome humain étant important, la taille du fichier l'est aussi.
 
