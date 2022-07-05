@@ -6,7 +6,7 @@ Pour cela nous avons déja du mettre en place la séparation de fichier afin de 
 
 ## La séparation en plusieurs fichiers
 
-Nous avons crée un code afin de diviser un fichier en plusieurs fichiers car le transcriptome humain étant important, la taille du fichier l'est aussi.
+Nous avons créé un code afin de diviser un fichier en plusieurs fichiers car le transcriptome humain étant important, la taille du fichier l'est aussi.
 
 Pour cela, nous allons séparer le fichier en créant de nouveau fichiers avec chacuns contenant un chromosome différent 
 
