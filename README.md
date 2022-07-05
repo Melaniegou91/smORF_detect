@@ -29,6 +29,8 @@ C'est pour cela que nous avons créer la fonction complementaire. Nous avons fai
 
 Par la suite il a fallu éditer le dictionnaire du Code génétique afin que lorsque que l'on rencontre un codon nous sachions à quels acides aminés il corespondait.
 
+![code génétique](https://github.com/Melaniegou91/smORF_detect/blob/main/Code%20g%C3%A9n%C3%A9tique.jpg)
+
 Une fois cela fait, et apres avoir pris en compte les
 
 
