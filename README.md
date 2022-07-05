@@ -4,98 +4,33 @@ Le but de ce projet est d'analyser une séquence d'ADN afin de détecter des pep
 
 Pour cela nous avons déja du mettre en place la séparation de fichier afin de pouvoir ouvrir un fichier et l'analyser.
 
-## =La séparation en plusieurs fichiers=
+## La séparation en plusieurs fichiers
 
-Dans ce code, nous cherchons à diviser un fichier en plusieurs fichiers car le transcriptome humain étant important, la taille du fichier l'est aussi.
+Nous avons crée un code afin de diviser un fichier en plusieurs fichiers car le transcriptome humain étant important, la taille du fichier l'est aussi.
 
-Pour cela, nous allons séparer le fichier en créant de nouveau fichiers avec chacun contenant un chromosome différent 
-
-
-
-```{r}
-with open ('human_g1k_v37.fasta', 'r')  as genome: 
-  compteur = 0
-  chromosome = "chromosome37h"
-  strcompteur=str(compteur)
-  filehandler = open(chromosome+strcompteur+'.fasta','a+')
-  for ligne in genome :
-    if ligne.startswith('>'):
-      compteur=compteur+1
-      strcompteur=str(compteur)
-      filehandler.close()
-      filehandler=open(chromosome+strcompteur+'.fasta','a+')
-      filehandler.write(ligne)
-    else :
-      filehandler.write(ligne)
-```
+Pour cela, nous allons séparer le fichier en créant de nouveau fichiers avec chacuns contenant un chromosome différent 
 
 Cela va donc créer un nombre n de fichiers qui correspond au nombre n de chromosomes.
 
 ## L'analyse de la séquence d'ADN
 
-Tout d'abord pour pouvoir utiliser ce code, nous utilisons un des fichiers créer ultérieurement grâce au code separefichier.py 
+Tout d'abord pour pouvoir utiliser ce code, il faut utiliser un des fichiers créer ultérieurement grâce au code separefichier.py 
 
-Maintenant que nous avons sélectionner notre fichier, nous devons effectuer la traduction de la séquence.
+Maintenant que le fichier a été selectionné, nous devons effectuer la traduction de la séquence.
 
-![Cover](https://github.com/Melaniegou91/smORF_detect/blob/main/transcription.jpg)
+![Traduction](https://github.com/Melaniegou91/smORF_detect/blob/main/transcription.jpg)
 
-Pour cela, il a fallu prendre en compte les 6 cadres de lectures de la séquence. Tout d'abord nous avons pris en compte que les 3 premiers.
+Pour cela, il a fallu prendre en compte les 6 cadres de lectures de la séquence. Tout d'abord nous avons pris en compte que les 3 premiers cadres.
+Pour prendre en compte ces 3 cadres de lecture, il fallait commencer la lecture de la séquence d'ADN à différents nucleotides. Pour le premier cadre, nous commencions le lecture de la séquence au premeir nucléotide, pour le deuxième cadre nous commencions la lecture au second nucléotide et pour le troisième nous commencions la lecture au 3 ème nucléotide.
 
-Ce qui nous ont menés au code suivant :
+Ensuite pour faire les 3 autres cadres de lecture, il fallait que nous prenions en compte la sequence complémentaire. 
 
-```{r}
-def translate(sequence_adn, x):
-		
-		codon=""	#Initialise le codon à  un string vide
-		aa=""		#initialise le sequence de protéine à un string vide
-		counter=0	#Initialise le codon à 0
-		for line in sequence_adn:	#Parcours chaque lignes une à une du fichier
-			counter+=1		#On ajoute 1 au compteur à chaque fois qu'on a parcouru une ligne
-			if counter == 2:	#Si le compteur = 2 on applique la condition suivante :
-				line = line[x:] #la ligne change et commence à l'indice x et termine à la fin de la ligne
-				
-      				
-			if line.startswith('>') : #Si la ligne ne commence pas par un > on rentre dans la boucle suivante
-				aa+='\n'
-				for caracteres in line:	# On parcours chaque caractere d'une ligne
-					
-					aa+=caracteres
-					
-					
-			else :
-				for caracteres in line:
-					if(len(codon)<2):	# Si la longueur du codon est < à 2 on applique :
-						codon = codon + caracteres	#On ajoute au codon le caractere parcouru
-					else:	#Si la longueur du codon est > à 2 on applique les lignes suivantes :
-						codon+=caracteres	#On ajoute au codon le caractere parcouru
-						if codon in Code_genetique:	#si le codon fait partis du code génétique :
-							aa=aa+Code_genetique[codon]#On ajoute à la sequence protéique le codon
-							codon="" #Le codon redevient vide
-						
-						else:	#Si le codon n'est pas dans le code genetique :
-							aa+='X'	#On ajoute à la sequence proteique le caractère 'X'
-							codon=""	#Le codon redevient vide
-			
-			
-		return(aa)	#La fonction renvoie la sequence protéique
-	
-	
-	cadre1 = translate(sequence_adn,0)
-	fichier = open("M38_cadre1.fasta","a+")
-	fichier.write(cadre1)
-	fichier.close()
-	sequence_adn.seek(0)
-	cadre2 = translate(sequence_adn,1)
-	fichier2 = open("M38_cadre2.fasta","a+")
-	fichier2.write(cadre2)
-	fichier2.close()
-	sequence_adn.seek(0)
-	cadre3 = translate(sequence_adn,2)
-	fichier3 = open("M38_cadre3.fasta","a+")
-	fichier3.write(cadre3)
-	fichier3.close()
-	sequence_adn.seek(0)
+C'est pour cela que nous avons créer la fonction complementaire. Nous avons fait en sorte de d'abord trouver les nucléotides complémentaire et ensuite d'inverser le sens de lecture.
 
-```
+Par la suite il a fallu éditer le dictionnaire du Code génétique afin que lorsque que l'on rencontre un codon nous sachions à quels acides aminés il corespondait.
+
+Une fois cela fait, et apres avoir pris en compte les
+
+
 
 
