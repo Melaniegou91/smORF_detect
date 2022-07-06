@@ -10,7 +10,27 @@ Nous avons créé un code afin de diviser un fichier en plusieurs fichiers car l
 
 Pour cela, nous allons séparer le fichier en créant de nouveau fichiers avec chacuns contenant un chromosome différent 
 
-Cela va donc créer un nombre n de fichiers qui correspond au nombre n de chromosomes.
+Cela va donc créer un nombre n de fichiers qui correspond au nombre <span style="color: red"> n </span> de chromosomes.
+```{r}
+
+with open ('GRCh38.p13.genome.fa', 'r')  as genome: 
+  compteur = 0
+  chromosome = "chromosome"
+  strcompteur=str(compteur)
+  filehandler = open(chromosome+strcompteur+'.fasta','a+')
+  for ligne in genome :
+    if ligne.startswith('>'):
+      compteur=compteur+1
+      strcompteur=str(compteur)
+      filehandler.close()
+      filehandler=open(chromosome+strcompteur+'.fasta','a+')
+      filehandler.write(ligne)
+    else :
+      filehandler.write(ligne)
+
+```
+Pour faire cela nous avons donc demander à notre code de créer un nouveau fichier qui s'appelera chromosome <span style="color: red"> n </span> 
+
 
 ## L'analyse de la séquence d'ADN
 
