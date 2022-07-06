@@ -47,7 +47,7 @@ Ensuite pour faire les 3 autres cadres de lecture, il fallait que nous prenions 
 
 C'est pour cela que nous avons créer la fonction complementaire. Nous avons fait en sorte de d'abord trouver les nucléotides complémentaire et ensuite d'inverser le sens de lecture.
 
-`` `json
+```
 def complementaire(sequence_adn) :
 		seq_compl = ""
 		for line in sequence_adn:
