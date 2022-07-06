@@ -47,9 +47,62 @@ Ensuite pour faire les 3 autres cadres de lecture, il fallait que nous prenions 
 
 C'est pour cela que nous avons créer la fonction complementaire. Nous avons fait en sorte de d'abord trouver les nucléotides complémentaire et ensuite d'inverser le sens de lecture.
 
+`` `json
+def complementaire(sequence_adn) :
+		seq_compl = ""
+		for line in sequence_adn:
+			if line.startswith('>'):
+				seq_compl = seq_compl+'\n' 
+				for caractere in line:
+					caractere=caractere.lower()
+					seq_compl+=caractere
+				seq_compl = seq_compl+'\n' 
+			else :
+				for caractere in line:
+					if caractere == 'A':
+					 	caractere = 'T'
+					 	seq_compl+=caractere
+					elif caractere == "T":
+					 	caractere = "A"
+					 	seq_compl+=caractere
+					elif caractere == 'C':
+					 	caractere="G"
+					 	seq_compl+=caractere
+					elif caractere == 'G':
+					 	caractere = 'C'
+					 	seq_compl+=caractere
+					else:
+					 	caractere=caractere
+					 	seq_compl+=caractere
+				seq_compl = seq_compl+'\n' 
+		seq_compl=seq_compl[::-1]
+		return (seq_compl)
+```
+
 Par la suite il a fallu éditer le dictionnaire du Code génétique afin que lorsque l'on rencontre un codon nous sachions à quels acides aminés il correspondait.
 
 ![code génétique](https://github.com/Melaniegou91/smORF_detect/blob/main/Code%20g%C3%A9n%C3%A9tique.jpg)
+
+```
+Code_genetique = {"ATA":"I", "ATC":"I", "ATT":"I", "ATG":"M",
+                    	  'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+                    	  'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+                    	  'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',                
+                    	  'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+                    	  'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+                    	  'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+                    	  'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+                    	  'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+                    	  'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+                    	  'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+                   	  'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+                   	  'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+                   	  'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+                   	  'TAC':'Y', 'TAT':'Y', 'TAA':'*', 'TAG':'*',
+                   	  'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',
+                     
+                   	 }
+```
 
 Une fois cela fait, et après avoir pris en compte les problèmes de mémoire, nous sommes parvenus au code transcriptome.py
 
