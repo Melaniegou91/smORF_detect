@@ -1,6 +1,6 @@
 # smORF_detect
 
-Le but de ce projet est d'analyser une séquence d'ADN afin de détecter des peptides de très petite taille qui n'ont pas été detecté jusqu'à présent.
+Le but de ce projet est d'analyser une séquence d'ADN afin de détecter des protéines de très petite taille qui n'ont pas été detecté jusqu'à présent.
 
 Pour cela nous avons déja du mettre en place la séparation de fichier afin de pouvoir ouvrir un fichier et l'analyser.
 
