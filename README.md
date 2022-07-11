@@ -39,5 +39,7 @@ Pour chercher un peptide au sein de votre fichier de sortie vous pouvez utiliser
 grep 'peptide' nom_fichier_sortie.fasta
 
 ```
-![grep]
+Vous pouvez utiliser les options suivantes de grep :
+
+![grep](https://github.com/Melaniegou91/smORF_detect/blob/main/grep.png)
 
