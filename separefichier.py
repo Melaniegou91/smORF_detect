@@ -1,4 +1,7 @@
-with open ('GRCh38.p13.genome.fa', 'r')  as genome: 
+import sys
+import os
+nom_fichier_aseparer=sys.argv[1]
+with open (nom_fichier_aseparer, 'r')  as genome: 
   compteur = 0
   chromosome = "chromosome"
   strcompteur=str(compteur)
@@ -10,12 +13,14 @@ with open ('GRCh38.p13.genome.fa', 'r')  as genome:
       filehandler.close()
       filehandler=open(chromosome+strcompteur+'.fasta','a+')
       filehandler.write(ligne)
+      
     else :
       filehandler.write(ligne)
-      
-  #chromosome2=open('chromosome2.fasta','r')
-  #print(chromosome2.read())
-   
+os.remove("chromosome0.fasta")
+
+
+
+# Ancienne version
 import sys
 nom_fichier_aseparer=sys.argv[1]
 with open (nom_fichier_aseparer, 'r')  as genome: 
