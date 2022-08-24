@@ -25,11 +25,11 @@ Pour étudier le fichier que vous souhaitez étudier vous pouvez rentrer la comm
 
 ```
 
-python3 traduction.py nom_fichier_entree.fasta type_sequence nom_fichier_sortie.fasta
+python3 traduction.py -s -e -t -M
 
 ```
 
-Vous devez mettre en argument le nom de votre fichier à étudier puis le type de votre séquence, c'est à dire ARN si c'est une séquence d'ARN ou ADN si c'est une séquence d'ADN. Le dernier argument sera le nom du fichier de sortie du programme que vous souhaitez.
+Vous devez mettre pour -s le nom de votre fichier à étudier puis avec -t le type de votre séquence, c'est à dire ARN si c'est une séquence d'ARN ou ADN si c'est une séquence d'ADN. -e sera le nom du fichier de sortie du programme que vous souhaitez et enfin avec -M vous pouvez indiquer avec 'yes' si vous souhaiter uniquement les peptides commençant par une méthionine
 
 ## Etape 4
 
